@@ -1,4 +1,5 @@
 import { Grid2, useMediaQuery, Tabs, Tab, Card } from "@mui/material";
+import Today from "../components/Today";
 
 function Home() {
   const isMobile = useMediaQuery("(max-width: 600px)");
@@ -6,9 +7,7 @@ function Home() {
   return (
     <Grid2 container spacing={2}>
       <Grid2 size={12}>
-        <Card component="div" style={{ backgroundColor: "transparent" }}>
-          Today
-        </Card>
+        <Today />
       </Grid2>
       {isMobile ? (
         <Grid2 size={12}>
