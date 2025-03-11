@@ -14,7 +14,7 @@ function DetailCard({ label = null, icon, formattedValue = "—" }: Props) {
         direction="row"
         alignItems="center"
         justifyContent="space-around"
-        columnGap={{ xs: "16px", m: "8px" }}
+        columnGap={{ xs: "16px", s: "4px", m: "8px" }}
         minHeight={{ xs: "48px", s: "64px" }}
         padding="8px"
         display="flex"

@@ -64,7 +64,7 @@ function Details({ data = {} }: Props) {
       {/* Dew point */}
       <Grid2 size={isMobileDevice ? 12 : 6}>
         <DetailCard
-          label={<Lsi lsi={{ en: "Feels like", cs: "Pocitová teplota" }} />}
+          label={<Lsi lsi={{ en: "Feels like", cs: "Pocit. teplota" }} />}
           icon={<TemperatureIcon fontSize="small" />}
           formattedValue={feelslike_c ? `${feelslike_c} °C` : undefined}
         />
