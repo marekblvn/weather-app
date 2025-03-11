@@ -11,7 +11,7 @@ const LsiContext = createContext<LsiContextType | undefined>(undefined);
 export function LsiProvider({ children }: { children: ReactNode }) {
   function getDefaultLanguage(): LanguageCode {
     const browserLang = navigator.language.slice(0, 2);
-    return browserLang === "cs" ? "cs" : "cs";
+    return browserLang === "cs" ? "cs" : "en";
   }
 
   const [language, setLanguage] = useState<LanguageCode>(getDefaultLanguage);
