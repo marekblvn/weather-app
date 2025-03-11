@@ -1,7 +1,8 @@
 import React from "react";
+import Today from "../components/Today";
 
 function Home() {
-  return <div>Home</div>;
+  return <Today />;
 }
 
 export default Home;
