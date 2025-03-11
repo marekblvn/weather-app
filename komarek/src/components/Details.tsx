@@ -59,54 +59,65 @@ function Details({ data = {} }: Props) {
       container
       size={12}
       spacing="6px"
-      rowSpacing={isMobileDevice ? "12px" : "32px"}
+      rowSpacing={isMobileDevice ? "12px" : "auto"}
+      alignItems="stretch"
+      height="100%"
+      justifyContent="space-between"
     >
       {/* Dew point */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <DetailCard
           label={<Lsi lsi={{ en: "Feels like", cs: "Pocit. teplota" }} />}
           icon={<TemperatureIcon fontSize="small" />}
-          formattedValue={feelslike_c ? `${feelslike_c} °C` : undefined}
+          formattedValue={
+            feelslike_c !== undefined ? `${feelslike_c} °C` : undefined
+          }
         />
       </Grid2>
       {/* Humidity */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <DetailCard
           label={<Lsi lsi={{ en: "Humidity", cs: "Vlhkost" }} />}
-          icon={<WaterDropIcon fontSize="small" style={{ color: "#3EA4F0" }} />}
-          formattedValue={humidity ? `${humidity} %` : undefined}
+          icon={<WaterDropIcon fontSize="small" />}
+          formattedValue={humidity !== undefined ? `${humidity} %` : undefined}
         />
       </Grid2>
       {/* Air Pressure */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <DetailCard
           label={<Lsi lsi={{ en: "Air Pressure", cs: "Tlak vzduchu" }} />}
           icon={<ScaleIcon fontSize="small" />}
-          formattedValue={pressure_mb ? `${pressure_mb} hPa` : undefined}
+          formattedValue={
+            pressure_mb !== undefined ? `${pressure_mb} hPa` : undefined
+          }
         />
       </Grid2>
       {/* Wind Speed */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <DetailCard
           label={<Lsi lsi={{ en: "Wind Speed", cs: "Rychlost větru" }} />}
           icon={<AirIcon fontSize="small" />}
-          formattedValue={wind_kph ? `${kmphToMps(wind_kph)} m/s` : undefined}
+          formattedValue={
+            wind_kph !== undefined ? `${kmphToMps(wind_kph)} m/s` : undefined
+          }
         />
       </Grid2>
       {/* Wind Direction */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <WindDirectionIcon degrees={wind_degree ?? 0} />
       </Grid2>
       {/* Precipation */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <DetailCard
           label={<Lsi lsi={{ en: "Precipiation", cs: "Srážky" }} />}
-          icon={<WaterIcon fontSize="small" style={{ color: "#89CFF0" }} />}
-          formattedValue={precip_mm ? `${precip_mm} mm` : undefined}
+          icon={<WaterIcon fontSize="small" />}
+          formattedValue={
+            precip_mm !== undefined ? `${precip_mm} mm` : undefined
+          }
         />
       </Grid2>
       {/* UV Index */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <DetailCard
           label={<Lsi lsi={{ en: "UV Index", cs: "UV Index" }} />}
           icon={
@@ -115,15 +126,17 @@ function Details({ data = {} }: Props) {
               style={{ color: getUvIndexColor(0) }}
             />
           }
-          formattedValue={uv ? `${uv}` : undefined}
+          formattedValue={uv !== undefined ? `${uv}` : undefined}
         />
       </Grid2>
       {/* Dew point */}
-      <Grid2 size={isMobileDevice ? 12 : 6}>
+      <Grid2 size={{ xs: 12, md: 6 }}>
         <DetailCard
           label={<Lsi lsi={{ en: "Dew Point", cs: "Rosný bod" }} />}
           icon={<DewPointIcon fontSize="small" />}
-          formattedValue={dewpoint_c ? `${dewpoint_c} °C` : undefined}
+          formattedValue={
+            dewpoint_c !== undefined ? `${dewpoint_c} °C` : undefined
+          }
         />
       </Grid2>
     </Grid2>

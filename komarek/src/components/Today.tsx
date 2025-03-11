@@ -1,21 +1,6 @@
 import { Box, Grid2, Stack, Typography } from "@mui/material";
 import Lsi from "./Lsi";
-
-const daysShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+import { getLocaleDateFormat } from "../utils/locales";
 
 interface LocationData {
   name: string;
@@ -35,14 +20,7 @@ function Today({
   lastUpdated = "",
   icon = undefined,
 }: Props) {
-  function formatDate(d: string): string {
-    const date = new Date(d);
-    const day = daysShort[date.getDay()];
-    const dayNum = date.getDate();
-    const month = months[date.getMonth()];
-    return `${day}, ${month} ${dayNum}`;
-  }
-
+  const date = new Date(locationData.localtime);
   function getUpdateTime(d: string): string {
     const date = new Date(d);
     const hours = date.getHours();
@@ -63,7 +41,7 @@ function Today({
           <Stack spacing="8px" alignItems="start" justifyContent="center">
             <Typography variant="h5">{locationData.name}</Typography>
             <Typography variant="subtitle2">
-              {formatDate(locationData.localtime)}
+              {getLocaleDateFormat(date)}
             </Typography>
           </Stack>
           <Stack direction="column" alignItems="end">

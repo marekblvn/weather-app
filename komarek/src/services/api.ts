@@ -10,13 +10,19 @@ const apiInstance = axios.create({
 interface CurrentByLanAndLonParams {
   lat: number;
   lon: number;
+  days: number;
 }
-
-export async function getCurrentByLanAndLon(
+//TODO: Implement getting geolocation from browser
+export async function getForecast(
   params: CurrentByLanAndLonParams
 ): Promise<AxiosResponse<Record<string, any>>> {
-  const response = await apiInstance.get("/current.json", {
-    params: { q: `${params.lat},${params.lon}` },
+  const response = await apiInstance.get("/forecast.json", {
+    params: {
+      q: `${params.lat},${params.lon}`,
+      days: params.days,
+      aqi: "no",
+      alerts: "no",
+    },
   });
   return response;
 }

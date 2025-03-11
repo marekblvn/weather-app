@@ -9,7 +9,7 @@ interface Props {
 
 function DetailCard({ label = null, icon, formattedValue = "—" }: Props) {
   return (
-    <Card>
+    <Card style={{ backgroundColor: "#e3d0d0" }}>
       <Stack
         direction="row"
         alignItems="center"

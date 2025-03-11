@@ -1,4 +1,4 @@
-import { cache, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AxiosResponse } from "axios";
 
 interface UseGetResult<T extends Record<string, any>> {

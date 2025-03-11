@@ -1,4 +1,4 @@
-import { Container, Slide } from "@mui/material";
+import { Box, Slide } from "@mui/material";
 import { ReactElement } from "react";
 
 interface Props {
@@ -12,7 +12,9 @@ function TabPanel({ children, value, index }: Props) {
   const direction = index === 0 ? "right" : "left";
   return (
     <Slide in={value === index} direction={direction}>
-      <Container style={{ marginTop: "12px" }}>{children}</Container>
+      <Box marginTop="12px" width="100%">
+        {children}
+      </Box>
     </Slide>
   );
 }

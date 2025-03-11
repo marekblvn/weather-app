@@ -1,7 +1,7 @@
 import { useMediaQuery } from "@mui/material";
 
 function useIsMobileDevice(): boolean {
-  const isMobileDevice = useMediaQuery<boolean>("(max-width: 640px)");
+  const isMobileDevice = useMediaQuery<boolean>("(max-width: 680px)");
   return isMobileDevice;
 }
 
