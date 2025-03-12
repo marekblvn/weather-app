@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      <Container maxWidth={"xl"}>
+      <Container maxWidth={false}>
         <BrowserRouter>
           <Routes>
             <Route index element={<Home />} />

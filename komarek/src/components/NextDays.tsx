@@ -1,5 +1,6 @@
 import {
   Box,
+  Grid2,
   Table,
   TableBody,
   TableCell,
@@ -105,16 +106,14 @@ function NextDays({ data = { forecastday: [] } }: Props) {
   return (
     <TableContainer
       component="div"
-      style={{
-        width: "100%",
+      sx={{
         padding: 0,
-        height: "100%",
         justifyContent: "space-between",
       }}
     >
       <Table>
         <TableHead>
-          <TableRow>
+          <TableRow sx={{ maxHeight: "32px" }}>
             <TableCell align="center"></TableCell>
             <TableCell align="center">
               <Tooltip

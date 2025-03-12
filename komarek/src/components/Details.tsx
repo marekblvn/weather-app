@@ -1,15 +1,15 @@
-import { Grid2 } from "@mui/material";
-import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import AirIcon from "@mui/icons-material/Air";
-import ScaleIcon from "@mui/icons-material/Scale";
+import { Grid2, List } from "@mui/material";
+import HumidityIcon from "@mui/icons-material/WaterDrop";
+import WindSpeedIcon from "@mui/icons-material/Air";
+import AirPressureIcon from "@mui/icons-material/Scale";
 import WaterIcon from "@mui/icons-material/Water";
-import WbSunnyIcon from "@mui/icons-material/WbSunny";
-import WindDirectionIcon from "./WindDirectionIcon";
+import UvIndexIcon from "@mui/icons-material/WbSunny";
 import DewPointIcon from "@mui/icons-material/WaterDropOutlined";
 import TemperatureIcon from "@mui/icons-material/DeviceThermostatOutlined";
 import useIsMobileDevice from "../hooks/useIsMobileDevice";
-import DetailCard from "./DetailCard";
+import DetailItem from "./DetailItem";
 import Lsi from "./Lsi";
+import WindDirectionItem from "./WindDirectionItem";
 
 interface WeatherData extends Record<string, number | string | undefined> {
   wind_kph?: number;
@@ -54,94 +54,63 @@ function Details({ data = {} }: Props) {
       return "#BF40BF";
     }
   }
-  return (
-    <Grid2
-      container
-      size={12}
-      spacing="6px"
-      rowSpacing={isMobileDevice ? "12px" : "auto"}
-      alignItems="stretch"
-      height="100%"
-      justifyContent="space-between"
-    >
-      {/* Dew point */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <DetailCard
+  return isMobileDevice ? (
+    <List></List>
+  ) : (
+    <div>
+      <Grid2
+        container
+        columns={{ xs: 12, lg: 16 }}
+        spacing={{ xs: "2px", sm: "4px", md: "8px", lg: "12px" }}
+      >
+        <DetailItem
           label={<Lsi lsi={{ en: "Feels like", cs: "Pocit. teplota" }} />}
-          icon={<TemperatureIcon fontSize="small" />}
+          icon={<TemperatureIcon sx={{ color: "#a97070" }} />}
           formattedValue={
-            feelslike_c !== undefined
-              ? `${feelslike_c.toFixed(0)} °C`
-              : undefined
+            feelslike_c === undefined ? "—" : `${feelslike_c.toFixed(0)} °C`
           }
         />
-      </Grid2>
-      {/* Humidity */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <DetailCard
+        <DetailItem
           label={<Lsi lsi={{ en: "Humidity", cs: "Vlhkost" }} />}
-          icon={<WaterDropIcon fontSize="small" />}
-          formattedValue={humidity !== undefined ? `${humidity} %` : undefined}
+          icon={<HumidityIcon sx={{ color: "#a97070" }} />}
+          formattedValue={humidity === undefined ? "—" : `${humidity} %`}
         />
-      </Grid2>
-      {/* Air Pressure */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <DetailCard
-          label={<Lsi lsi={{ en: "Air Pressure", cs: "Tlak vzduchu" }} />}
-          icon={<ScaleIcon fontSize="small" />}
-          formattedValue={
-            pressure_mb !== undefined ? `${pressure_mb} hPa` : undefined
-          }
-        />
-      </Grid2>
-      {/* Wind Speed */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <DetailCard
-          label={<Lsi lsi={{ en: "Wind Speed", cs: "Rychlost větru" }} />}
-          icon={<AirIcon fontSize="small" />}
-          formattedValue={
-            wind_kph !== undefined ? `${kmphToMps(wind_kph)} m/s` : undefined
-          }
-        />
-      </Grid2>
-      {/* Wind Direction */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <WindDirectionIcon degrees={wind_degree ?? 0} />
-      </Grid2>
-      {/* Precipation */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <DetailCard
+        <DetailItem
           label={<Lsi lsi={{ en: "Precipiation", cs: "Srážky" }} />}
-          icon={<WaterIcon fontSize="small" />}
+          icon={<WaterIcon sx={{ color: "#a97070" }} />}
           formattedValue={
-            precip_mm !== undefined ? `${precip_mm.toFixed(1)} mm` : undefined
+            precip_mm === undefined ? "—" : `${precip_mm.toFixed(0)} mm`
           }
         />
-      </Grid2>
-      {/* UV Index */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <DetailCard
-          label={<Lsi lsi={{ en: "UV Index", cs: "UV Index" }} />}
-          icon={
-            <WbSunnyIcon
-              fontSize="small"
-              style={{ color: getUvIndexColor(0) }}
-            />
+        <DetailItem
+          label={<Lsi lsi={{ en: "Air Pressure", cs: "Tlak vzduchu" }} />}
+          icon={<AirPressureIcon sx={{ color: "#a97070" }} />}
+          formattedValue={
+            pressure_mb === undefined ? "—" : `${pressure_mb} hPa`
           }
-          formattedValue={uv !== undefined ? `${uv}` : undefined}
         />
-      </Grid2>
-      {/* Dew point */}
-      <Grid2 size={{ xs: 12, md: 6 }}>
-        <DetailCard
+        <DetailItem
+          label={<Lsi lsi={{ en: "Wind Speed", cs: "Rychl. větru" }} />}
+          icon={<WindSpeedIcon sx={{ color: "#a97070" }} />}
+          formattedValue={
+            wind_kph === undefined ? "—" : `${kmphToMps(wind_kph)} m/s`
+          }
+        />
+        <WindDirectionItem degrees={wind_degree ?? 0} />
+        <DetailItem
           label={<Lsi lsi={{ en: "Dew Point", cs: "Rosný bod" }} />}
-          icon={<DewPointIcon fontSize="small" />}
+          icon={<DewPointIcon sx={{ color: "#a97070" }} />}
           formattedValue={
-            dewpoint_c !== undefined ? `${dewpoint_c.toFixed(0)} °C` : undefined
+            dewpoint_c === undefined ? "—" : `${dewpoint_c.toFixed(0)} °C`
           }
         />
+        <DetailItem
+          label={<Lsi lsi={{ en: "UV Index", cs: "UV index" }} />}
+          icon={<UvIndexIcon sx={{ color: "#a97070" }} />}
+          formattedValue={uv === undefined ? "—" : `${uv.toFixed(1)}`}
+        />
       </Grid2>
-    </Grid2>
+    </div>
   );
 }
 
