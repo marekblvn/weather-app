@@ -30,7 +30,7 @@ function Home() {
     setShowSnackbar(false);
   }
 
-  function handleChangeTab(event: SyntheticEvent, newValue: number): void {
+  function handleChangeTab(_: SyntheticEvent, newValue: number): void {
     setTab(newValue);
   }
   return (

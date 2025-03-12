@@ -1,4 +1,4 @@
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./routes/Home";
 import About from "./routes/About";
