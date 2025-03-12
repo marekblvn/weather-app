@@ -7,7 +7,7 @@ interface Props {
   readonly degrees: number;
 }
 
-function WindDirectionIcon({ degrees }: Props) {
+function WindDirectionCard({ degrees }: Props) {
   return (
     <Card style={{ backgroundColor: "#e3d0d0" }}>
       <Stack
@@ -44,4 +44,4 @@ function WindDirectionIcon({ degrees }: Props) {
   );
 }
 
-export default WindDirectionIcon;
+export default WindDirectionCard;
