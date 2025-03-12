@@ -1,8 +1,9 @@
-import { CircularProgress, Paper } from "@mui/material";
+import { Box } from "@mui/material";
+import loadingGif from "../assets/animations/loading.gif";
 
 function FullPagePending() {
   return (
-    <Paper
+    <Box
       style={{
         width: "100%",
         height: "100%",
@@ -13,12 +14,19 @@ function FullPagePending() {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#f6f0f0",
+        zIndex: 1000,
       }}
     >
-      <CircularProgress
-        style={{ width: "25%", height: "25%", color: "#d9c0c0" }}
+      <div
+        style={{
+          background: `url(${loadingGif})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          width: "400px",
+          height: "225px",
+        }}
       />
-    </Paper>
+    </Box>
   );
 }
 

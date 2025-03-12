@@ -4,10 +4,10 @@ import Lsi from "./Lsi";
 function Footer() {
   return (
     <Box
-      position="absolute"
-      bgcolor="#ece0e0"
+      position="fixed"
       bottom={0}
       left={0}
+      bgcolor="#ece0e0"
       width="100%"
       height="48px"
       display="flex"
