@@ -33,9 +33,14 @@ function Home() {
   function handleChangeTab(_: SyntheticEvent, newValue: number): void {
     setTab(newValue);
   }
+
+  if (loading) return <FullPagePending />;
+
+  const todayHourly = data?.forecast.forecastday[0].hour;
+  console.log(todayHourly);
+
   return (
     <>
-      {loading && <FullPagePending />}
       {data && (
         <Grid2 container>
           <Grid2 size={12}>
@@ -76,17 +81,12 @@ function Home() {
               </Grid2>
             </Grid2>
           ) : (
-            <Grid2 container size={12} spacing="8px">
-              <Grid2
-                size={{ xs: 6, sm: 5, md: 7 }}
-                marginTop="64.5px"
-                height="100%"
-                flexGrow={1}
-              >
+            <Grid2 container size={12} spacing="12px">
+              <Grid2 size={6} marginTop="64.5px" height="100%" flexGrow={1}>
                 <Details data={data.current} />
               </Grid2>
-              <Divider orientation="vertical" flexItem />
-              <Grid2 size={4} flexGrow={1} container>
+              <Divider orientation="vertical" variant="middle" flexItem />
+              <Grid2 size={5} flexGrow={1} container>
                 <NextDays data={data.forecast} />
               </Grid2>
             </Grid2>
