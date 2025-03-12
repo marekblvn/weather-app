@@ -1,5 +1,5 @@
 import { SyntheticEvent, useEffect, useState } from "react";
-import { Divider, Grid2, Tab, Tabs } from "@mui/material";
+import { Container, Divider, Grid2, Tab, Tabs } from "@mui/material";
 import Today from "../components/Today";
 import Details from "../components/Details";
 import useIsMobileDevice from "../hooks/useIsMobileDevice";
@@ -81,15 +81,21 @@ function Home() {
               </Grid2>
             </Grid2>
           ) : (
-            <Grid2 container size={12} spacing="12px">
-              <Grid2 size={6} marginTop="64.5px" height="100%" flexGrow={1}>
-                <Details data={data.current} />
-              </Grid2>
-              <Divider orientation="vertical" variant="middle" flexItem />
-              <Grid2 size={5} flexGrow={1} container>
-                <NextDays data={data.forecast} />
-              </Grid2>
-            </Grid2>
+            <Container
+              maxWidth={false}
+              sx={{
+                display: "grid",
+                gridTemplateColumns: {
+                  sm: "200px 16px auto",
+                  md: "auto 16px auto",
+                },
+                gridTemplateRows: "auto",
+              }}
+            >
+              <Details data={data.current} />
+              <Divider orientation="vertical" variant="middle" />
+              <NextDays data={data.forecast} />
+            </Container>
           )}
         </Grid2>
       )}
