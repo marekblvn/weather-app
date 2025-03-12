@@ -13,10 +13,9 @@ import FullPagePending from "../components/FullPagePending";
 
 function Home() {
   const { data, loading, error } = useGet(getForecast, {
-    lat: 50.075539,
-    lon: 14.4378,
     days: 8,
   });
+
   const isMobileDevice: boolean = useIsMobileDevice();
   const [tab, setTab] = useState<number>(0);
   const [showSnackbar, setShowSnackbar] = useState<boolean>(false);
