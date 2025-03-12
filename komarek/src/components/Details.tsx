@@ -70,7 +70,9 @@ function Details({ data = {} }: Props) {
           label={<Lsi lsi={{ en: "Feels like", cs: "Pocit. teplota" }} />}
           icon={<TemperatureIcon fontSize="small" />}
           formattedValue={
-            feelslike_c !== undefined ? `${feelslike_c} °C` : undefined
+            feelslike_c !== undefined
+              ? `${feelslike_c.toFixed(0)} °C`
+              : undefined
           }
         />
       </Grid2>
@@ -112,7 +114,7 @@ function Details({ data = {} }: Props) {
           label={<Lsi lsi={{ en: "Precipiation", cs: "Srážky" }} />}
           icon={<WaterIcon fontSize="small" />}
           formattedValue={
-            precip_mm !== undefined ? `${precip_mm} mm` : undefined
+            precip_mm !== undefined ? `${precip_mm.toFixed(1)} mm` : undefined
           }
         />
       </Grid2>
@@ -135,7 +137,7 @@ function Details({ data = {} }: Props) {
           label={<Lsi lsi={{ en: "Dew Point", cs: "Rosný bod" }} />}
           icon={<DewPointIcon fontSize="small" />}
           formattedValue={
-            dewpoint_c !== undefined ? `${dewpoint_c} °C` : undefined
+            dewpoint_c !== undefined ? `${dewpoint_c.toFixed(0)} °C` : undefined
           }
         />
       </Grid2>
