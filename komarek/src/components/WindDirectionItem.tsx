@@ -57,6 +57,9 @@ function WindDirectionItem({ degrees }: Props) {
                 height: { xs: "24px", lg: "22px" },
                 width: { xs: "24px", lg: "22px" },
               }}
+              style={{
+                color: "#804d4d",
+              }}
             />
           </Box>
         </Box>

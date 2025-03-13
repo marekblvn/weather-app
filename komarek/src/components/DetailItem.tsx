@@ -56,7 +56,12 @@ function DetailItem({ label = null, icon, formattedValue = "—" }: Props) {
             alignItems="center"
             marginBottom={{ xs: "0", lg: "-4px" }}
           >
-            <Typography variant="subtitle2" textAlign="center" fontWeight={600}>
+            <Typography
+              variant="subtitle2"
+              textAlign="center"
+              fontWeight={600}
+              color="#804d4d"
+            >
               {formattedValue}
             </Typography>
           </Box>
