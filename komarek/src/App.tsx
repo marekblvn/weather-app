@@ -7,18 +7,16 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <Container maxWidth={false}>
-        <BrowserRouter>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </BrowserRouter>
-      </Container>
+    <Container maxWidth={false}>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
       <Footer />
-    </>
+    </Container>
   );
 }
 

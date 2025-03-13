@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import Lsi from "./Lsi";
 
 function Footer() {
@@ -11,26 +11,31 @@ function Footer() {
       width="100%"
       height="48px"
       display="flex"
-      justifyContent="space-around"
+      justifyContent="center"
       alignItems="center"
     >
-      <Typography
-        variant="caption"
-        fontSize="11px"
-        style={{ userSelect: "none" }}
-      >
-        <Lsi
-          lsi={{ en: "Made by Marek Balvín", cs: "Vytvořil Marek Balvín" }}
-        />{" "}
-        @ 2025
-      </Typography>
-      <Divider orientation="vertical" style={{ height: "32px" }} />
-      <Typography variant="caption" fontSize="11px">
-        Powered by{" "}
-        <a href="https://www.weatherapi.com/" title="Free Weather API">
-          WeatherAPI.com
-        </a>
-      </Typography>
+      <Stack direction="row" alignItems="center" spacing="8px">
+        <Typography
+          variant="caption"
+          fontSize="11px"
+          style={{ userSelect: "none" }}
+          color="#905656"
+        >
+          <Lsi
+            lsi={{ en: "Made by Marek Balvín", cs: "Vytvořil Marek Balvín" }}
+          />
+        </Typography>
+        <Divider
+          orientation="vertical"
+          sx={{ height: "32px", color: "#905656" }}
+        />
+        <Typography variant="caption" fontSize="11px" color="#905656">
+          Powered by{" "}
+          <a href="https://www.weatherapi.com/" title="Free Weather API">
+            WeatherAPI.com
+          </a>
+        </Typography>
+      </Stack>
     </Box>
   );
 }
