@@ -1,4 +1,4 @@
-import { Grid2, List } from "@mui/material";
+import { Grid2 } from "@mui/material";
 import HumidityIcon from "@mui/icons-material/WaterDrop";
 import WindSpeedIcon from "@mui/icons-material/Air";
 import AirPressureIcon from "@mui/icons-material/Scale";
@@ -6,7 +6,6 @@ import WaterIcon from "@mui/icons-material/Water";
 import UvIndexIcon from "@mui/icons-material/WbSunny";
 import DewPointIcon from "@mui/icons-material/WaterDropOutlined";
 import TemperatureIcon from "@mui/icons-material/DeviceThermostatOutlined";
-import useIsMobileDevice from "../hooks/useIsMobileDevice";
 import DetailItem from "./DetailItem";
 import Lsi from "./Lsi";
 import WindDirectionItem from "./WindDirectionItem";
@@ -27,7 +26,6 @@ interface Props {
 }
 
 function Details({ data = {} }: Props) {
-  const isMobileDevice = useIsMobileDevice();
   const {
     humidity,
     wind_degree,
@@ -41,19 +39,7 @@ function Details({ data = {} }: Props) {
   function kmphToMps(kmph: number): string {
     return ((kmph * 1000) / 3600).toFixed(1);
   }
-  function getUvIndexColor(uvIndex: number): string {
-    if (uvIndex < 3) {
-      return "#228B22";
-    } else if (uvIndex < 6) {
-      return "#FFBB00";
-    } else if (uvIndex < 8) {
-      return "#FF7721";
-    } else if (uvIndex < 11) {
-      return "#FF0000";
-    } else {
-      return "#BF40BF";
-    }
-  }
+
   return (
     <div>
       <Grid2

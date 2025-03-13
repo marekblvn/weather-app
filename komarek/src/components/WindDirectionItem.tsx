@@ -1,4 +1,4 @@
-import { Stack, Box, Typography, Paper, Grid2 } from "@mui/material";
+import { Box, Typography, Paper, Grid2 } from "@mui/material";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import Arrow from "@mui/icons-material/NorthOutlined";
 import Lsi from "./Lsi";

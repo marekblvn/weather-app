@@ -93,7 +93,7 @@ function Home() {
               }}
             >
               <Details data={data.current} />
-              <Divider orientation="vertical" variant="middle" />
+              <div />
               <NextDays data={data.forecast} />
             </Container>
           )}
