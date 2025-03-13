@@ -45,7 +45,10 @@ function NextDays({ data = { forecastday: [] } }: Props) {
       } = day;
       const { icon } = condition;
       return (
-        <TableRow key={entry.date_epoch}>
+        <TableRow
+          key={entry.date_epoch}
+          sx={{ height: { xs: "32px", md: "56px" } }}
+        >
           <TableCell
             align="center"
             sx={{ position: "sticky", left: 0, backgroundColor: "#e3d0d0" }}
@@ -123,7 +126,7 @@ function NextDays({ data = { forecastday: [] } }: Props) {
     >
       <Table size="small">
         <TableHead>
-          <TableRow sx={{ maxHeight: "32px" }}>
+          <TableRow sx={{ height: { xs: "32px", md: "50px" } }}>
             <TableCell
               align="center"
               sx={{
