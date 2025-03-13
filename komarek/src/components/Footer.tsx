@@ -13,6 +13,7 @@ function Footer() {
       display="flex"
       justifyContent="center"
       alignItems="center"
+      boxShadow="0px 0px 8px #3f2626"
     >
       <Stack direction="row" alignItems="center" spacing="8px">
         <Typography

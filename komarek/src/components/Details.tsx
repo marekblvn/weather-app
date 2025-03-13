@@ -54,9 +54,7 @@ function Details({ data = {} }: Props) {
       return "#BF40BF";
     }
   }
-  return isMobileDevice ? (
-    <List></List>
-  ) : (
+  return (
     <div>
       <Grid2
         container

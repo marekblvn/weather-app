@@ -9,24 +9,24 @@ interface Props {
 
 function WindDirectionItem({ degrees }: Props) {
   return (
-    <Grid2 size={{ sm: 12, md: 6, lg: 4, xl: 2 }} padding="2px">
+    <Grid2 size={{ xs: 12, md: 6, lg: 4, xl: 2 }} padding="2px">
       <Paper
         elevation={0}
         sx={{
           backgroundColor: "#ece0e0",
           borderRadius: 1,
-          minHeight: { sm: "64px", md: "32px", lg: "64px", xl: "96px" },
+          minHeight: { xs: "64px", md: "32px", lg: "64px", xl: "96px" },
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          padding: { sm: "4px", md: "8px" },
+          padding: { xs: "4px", md: "8px" },
           height: "90%",
         }}
       >
         <Box
           display="grid"
-          flexDirection={{ sm: "row", lg: "column" }}
-          justifyContent={{ sm: "space-between", lg: "center" }}
+          flexDirection={{ xs: "row", lg: "column" }}
+          justifyContent={{ xs: "space-between", lg: "center" }}
           gridTemplateColumns={{ xs: "50% 50%", lg: "none" }}
           gridTemplateRows={{ xs: "none", lg: "50% 50%" }}
           width="100%"
@@ -41,7 +41,7 @@ function WindDirectionItem({ degrees }: Props) {
           >
             <ExploreOutlinedIcon sx={{ color: "#a97070" }} />
             <Typography variant="caption" color="#a97070" fontWeight={700}>
-              {<Lsi lsi={{ en: "Wind Direction", cs: "Směr větru" }} />}
+              {<Lsi lsi={{ en: "Wind Dir.", cs: "Směr větru" }} />}
             </Typography>
           </Box>
           <Box
