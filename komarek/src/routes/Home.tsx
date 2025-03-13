@@ -1,12 +1,5 @@
 import { SyntheticEvent, useEffect, useState } from "react";
-import {
-  Container,
-  Grid2,
-  Stack,
-  Tab,
-  Tabs,
-  useMediaQuery,
-} from "@mui/material";
+import { Container, Grid2, Tab, Tabs } from "@mui/material";
 import Today from "../components/Today";
 import Details from "../components/Details";
 import useIsMobileDevice from "../hooks/useIsMobileDevice";
@@ -25,7 +18,6 @@ function Home() {
   });
 
   const isMobileDevice: boolean = useIsMobileDevice();
-  const isDesktop: boolean = useMediaQuery("(min-width: 770px)");
   const [tab, setTab] = useState<number>(0);
   const [showSnackbar, setShowSnackbar] = useState<boolean>(false);
 

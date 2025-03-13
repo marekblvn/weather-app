@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Paper,
   Table,
   TableBody,
