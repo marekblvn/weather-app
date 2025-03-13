@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 interface Props {
-  temperatureData?: Array<Record<string, any>>;
+  readonly temperatureData?: Array<Record<string, any>>;
 }
 
 function HourlyTemperature({ temperatureData = [] }: Props) {
@@ -22,16 +22,16 @@ function HourlyTemperature({ temperatureData = [] }: Props) {
     <Box
       display="flex"
       flexDirection="row"
-      justifyContent={{ xs: "flex-start", lg: "center" }}
+      justifyContent={{ xs: "start" }}
       padding="2px 8px"
       sx={{
-        overflow: "auto",
+        overflowX: "auto",
         whiteSpace: "nowrap",
         scrollbarWidth: "thin",
         scrollBehavior: "smooth",
         WebkitOverflowScrolling: "touch",
       }}
-      marginBottom="12px"
+      marginBottom={{ xs: "4px", sm: "12px" }}
       paddingBottom="8px"
     >
       {data.map((entry) => {
