@@ -1,4 +1,4 @@
-import { Box, Grid2, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import Lsi from "./Lsi";
 import { getLocaleDateFormat } from "../utils/locales";
 
@@ -20,6 +20,7 @@ function Today({
   lastUpdated = "",
   icon = undefined,
 }: Props) {
+  const isMobileDevice = useMediaQuery("(max-width: 900px)");
   const date = new Date(locationData.localtime);
   function getUpdateTime(d: string): string {
     const date = new Date(d);
@@ -29,55 +30,55 @@ function Today({
   }
 
   return (
-    <Box width="100%" height="100%" marginBottom="8px">
-      <Grid2 container>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          padding="8px"
-          width="100%"
-        >
-          <Stack spacing="8px" alignItems="start" justifyContent="center">
-            <Typography variant="h5">{locationData.name}</Typography>
-            <Typography variant="subtitle2">
-              {getLocaleDateFormat(date)}
-            </Typography>
-          </Stack>
-          <Stack direction="column" alignItems="end">
-            <Stack direction="row" alignItems="center" spacing="4px">
-              <Box alignItems="center" display="flex">
-                <img
-                  src={icon}
-                  alt=""
-                  width="100%"
-                  height="100%"
-                  style={{
-                    imageRendering: "crisp-edges",
-                    userSelect: "none",
-                  }}
-                />
-              </Box>
-              <Typography
-                variant="h5"
-                fontWeight={700}
-                style={{ userSelect: "none" }}
-              >
-                {temp.toFixed(0)} °C
-              </Typography>
-            </Stack>
-            <Typography
-              variant="caption"
-              fontSize="10px"
-              fontWeight={200}
-              color="#999999"
-            >
-              <Lsi lsi={{ en: "Last updated at", cs: "Aktualizováno v" }} />{" "}
-              {getUpdateTime(lastUpdated)}
-            </Typography>
-          </Stack>
+    <Box
+      width="100%"
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+    >
+      <Stack direction="column" justifyContent="center">
+        <Typography variant="h5" fontWeight={700} color="#a97070">
+          {locationData.name}
+        </Typography>
+        <Typography variant="subtitle1" color="#a97070">
+          {getLocaleDateFormat(date)}
+        </Typography>
+      </Stack>
+      <Stack direction="column" justifyContent="center" alignItems="end">
+        <Stack direction="row" alignItems="center">
+          <Box
+            width={{ xs: "48px", sm: "64px", lg: "72px" }}
+            height={{ xs: "48px", sm: "64px", lg: "72px" }}
+          >
+            <img
+              src={icon}
+              alt=""
+              height="100%"
+              width="100%"
+              style={{
+                imageRendering: "crisp-edges",
+                userSelect: "none",
+                imageResolution: "from-image",
+              }}
+            />
+          </Box>
+          <Typography
+            variant={isMobileDevice ? "h5" : "h4"}
+            fontWeight={700}
+            color="#a97070"
+          >
+            {temp.toFixed(0)} °C
+          </Typography>
         </Stack>
-      </Grid2>
+        <Typography
+          variant="caption"
+          fontSize={{ xs: "10px", md: "12px" }}
+          color="#d0b0b0"
+        >
+          <Lsi lsi={{ en: "Last updated at", cs: "Aktualizováno v" }} />{" "}
+          {getUpdateTime(lastUpdated)}
+        </Typography>
+      </Stack>
     </Box>
   );
 }
