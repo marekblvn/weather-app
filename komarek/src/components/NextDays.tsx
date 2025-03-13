@@ -1,7 +1,5 @@
 import {
   Box,
-  Grid2,
-  Paper,
   Table,
   TableBody,
   TableCell,
@@ -120,6 +118,7 @@ function NextDays({ data = { forecastday: [] } }: Props) {
       sx={{
         padding: 0,
         justifyContent: "space-between",
+        borderRadius: "16px",
       }}
     >
       <Table size="small">
@@ -130,7 +129,7 @@ function NextDays({ data = { forecastday: [] } }: Props) {
               sx={{
                 position: "sticky",
                 left: 0,
-                backgroundColor: "#f6f0f0",
+                backgroundColor: "#d0b0b0",
               }}
             >
               <Box width="100%" height="100%">
@@ -140,7 +139,7 @@ function NextDays({ data = { forecastday: [] } }: Props) {
                     width: isDesktop ? "32px" : "20px",
                     height: isDesktop ? "32px" : "20px",
                   }}
-                  color="primary"
+                  style={{ color: "#905656" }}
                 />
               </Box>
             </TableCell>
