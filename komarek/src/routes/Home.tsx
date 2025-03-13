@@ -1,5 +1,12 @@
 import { SyntheticEvent, useEffect, useState } from "react";
-import { Container, Grid2, Tab, Tabs } from "@mui/material";
+import {
+  Container,
+  Grid2,
+  Stack,
+  Tab,
+  Tabs,
+  useMediaQuery,
+} from "@mui/material";
 import Today from "../components/Today";
 import Details from "../components/Details";
 import useIsMobileDevice from "../hooks/useIsMobileDevice";
@@ -10,6 +17,7 @@ import Lsi from "../components/Lsi";
 import NextDays from "../components/NextDays";
 import ErrorSnackbar from "../components/ErrorSnackbar";
 import FullPagePending from "../components/FullPagePending";
+import HourlyTemperature from "../components/HourlyTemperature";
 
 function Home() {
   const { data, loading, error } = useGet(getForecast, {
@@ -17,6 +25,7 @@ function Home() {
   });
 
   const isMobileDevice: boolean = useIsMobileDevice();
+  const isDesktop: boolean = useMediaQuery("(min-width: 770px)");
   const [tab, setTab] = useState<number>(0);
   const [showSnackbar, setShowSnackbar] = useState<boolean>(false);
 
@@ -37,7 +46,6 @@ function Home() {
   if (loading) return <FullPagePending />;
 
   const todayHourly = data?.forecast.forecastday[0].hour;
-  console.log(todayHourly);
 
   return (
     <>
@@ -50,6 +58,7 @@ function Home() {
               icon={data.current.condition.icon}
               lastUpdated={data.current.last_updated}
             />
+            <HourlyTemperature temperatureData={todayHourly} />
           </Grid2>
           {isMobileDevice ? (
             <Grid2 size={12} flexGrow={1}>
@@ -85,15 +94,11 @@ function Home() {
               maxWidth={false}
               sx={{
                 display: "grid",
-                gridTemplateColumns: {
-                  sm: "200px 16px auto",
-                  md: "auto 16px auto",
-                },
+                gridTemplateColumns: "auto",
                 gridTemplateRows: "auto",
               }}
             >
               <Details data={data.current} />
-              <div />
               <NextDays data={data.forecast} />
             </Container>
           )}

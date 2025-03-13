@@ -1,4 +1,4 @@
-import { Grid2 } from "@mui/material";
+import { Container, Grid2 } from "@mui/material";
 import HumidityIcon from "@mui/icons-material/WaterDrop";
 import WindSpeedIcon from "@mui/icons-material/Air";
 import AirPressureIcon from "@mui/icons-material/Scale";
@@ -41,10 +41,10 @@ function Details({ data = {} }: Props) {
   }
 
   return (
-    <div>
+    <Container maxWidth="xl">
       <Grid2
         container
-        columns={{ xs: 12, lg: 16 }}
+        columns={{ lg: 16 }}
         spacing={{ xs: "2px", sm: "4px", md: "8px", lg: "12px" }}
       >
         <DetailItem
@@ -94,7 +94,7 @@ function Details({ data = {} }: Props) {
           formattedValue={uv === undefined ? "—" : `${uv.toFixed(1)}`}
         />
       </Grid2>
-    </div>
+    </Container>
   );
 }
 

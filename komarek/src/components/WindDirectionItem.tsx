@@ -9,7 +9,7 @@ interface Props {
 
 function WindDirectionItem({ degrees }: Props) {
   return (
-    <Grid2 size={{ xs: 12, md: 6, lg: 4, xl: 2 }} padding="2px">
+    <Grid2 size={{ xs: 12, sm: 6, md: 3, lg: 2 }} padding="2px">
       <Paper
         elevation={0}
         sx={{
