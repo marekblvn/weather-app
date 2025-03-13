@@ -35,6 +35,7 @@ function Today({
       display="flex"
       alignItems="center"
       justifyContent="space-between"
+      marginBottom={{ xs: "16px", md: "24px" }}
     >
       <Stack direction="column" justifyContent="center">
         <Typography variant="h5" fontWeight={700} color="#a97070">

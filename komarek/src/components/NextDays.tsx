@@ -1,6 +1,7 @@
 import {
   Box,
   Grid2,
+  Paper,
   Table,
   TableBody,
   TableCell,
@@ -16,6 +17,7 @@ import MinTempIcon from "../assets/icons/temperature-down.svg";
 import HumidityIcon from "../assets/icons/humidity.svg";
 import RainIcon from "../assets/icons/rain.svg";
 import SnowIcon from "../assets/icons/snow.svg";
+import DayIcon from "@mui/icons-material/Today";
 import Lsi from "./Lsi";
 import { getLocaleDayShort } from "../utils/locales";
 
@@ -46,19 +48,24 @@ function NextDays({ data = { forecastday: [] } }: Props) {
       const { icon } = condition;
       return (
         <TableRow key={entry.date_epoch}>
-          <TableCell align="center">
+          <TableCell
+            align="center"
+            sx={{ position: "sticky", left: 0, backgroundColor: "#e3d0d0" }}
+          >
             <Box
               display="flex"
               flexDirection="column"
               alignItems="center"
               justifyContent="center"
               rowGap="2px"
+              width="100%"
+              height="100%"
             >
               <img
                 src={icon}
                 alt=""
-                width={isDesktop ? "32px" : "22px"}
-                height={isDesktop ? "32px" : "22px"}
+                width={isDesktop ? "32px" : "24px"}
+                height={isDesktop ? "32px" : "24px"}
               />
               <Typography
                 fontWeight={700}
@@ -72,30 +79,35 @@ function NextDays({ data = { forecastday: [] } }: Props) {
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
-            >{`${maxtemp_c.toFixed(0)} °C`}</Typography>
+              fontSize={isDesktop ? "11px" : "10px"}
+            >{`${maxtemp_c.toFixed(0)}${isDesktop ? " " : ""}°C`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
-            >{`${mintemp_c.toFixed(0)} °C`}</Typography>
+              fontSize={isDesktop ? "11px" : "10px"}
+            >{`${mintemp_c.toFixed(0)}${isDesktop ? " " : ""}°C`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
+              fontSize={isDesktop ? "11px" : "10px"}
             >{`${avghumidity}%`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
+              fontSize={isDesktop ? "11px" : "10px"}
             >{`${daily_chance_of_rain}%`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
+              fontSize={isDesktop ? "11px" : "10px"}
             >{`${daily_chance_of_snow}%`}</Typography>
           </TableCell>
         </TableRow>
@@ -105,16 +117,33 @@ function NextDays({ data = { forecastday: [] } }: Props) {
 
   return (
     <TableContainer
-      component="div"
       sx={{
         padding: 0,
         justifyContent: "space-between",
       }}
     >
-      <Table>
+      <Table size="small">
         <TableHead>
           <TableRow sx={{ maxHeight: "32px" }}>
-            <TableCell align="center"></TableCell>
+            <TableCell
+              align="center"
+              sx={{
+                position: "sticky",
+                left: 0,
+                backgroundColor: "#f6f0f0",
+              }}
+            >
+              <Box width="100%" height="100%">
+                <DayIcon
+                  sx={{
+                    paddingTop: "2px",
+                    width: isDesktop ? "32px" : "20px",
+                    height: isDesktop ? "32px" : "20px",
+                  }}
+                  color="primary"
+                />
+              </Box>
+            </TableCell>
             <TableCell align="center">
               <Tooltip
                 placement="top"
