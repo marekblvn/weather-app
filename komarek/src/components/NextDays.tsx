@@ -1,5 +1,7 @@
 import {
   Box,
+  Container,
+  Paper,
   Table,
   TableBody,
   TableCell,
@@ -47,7 +49,10 @@ function NextDays({ data = { forecastday: [] } }: Props) {
       return (
         <TableRow
           key={entry.date_epoch}
-          sx={{ height: { xs: "32px", md: "56px" } }}
+          sx={{
+            height: { xs: "32px", md: "56px" },
+            "& td": { border: 0 },
+          }}
         >
           <TableCell
             align="center"
@@ -80,35 +85,35 @@ function NextDays({ data = { forecastday: [] } }: Props) {
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
-              fontSize={isDesktop ? "11px" : "10px"}
+              fontSize={isDesktop ? "14px" : "11px"}
             >{`${maxtemp_c.toFixed(0)}${isDesktop ? " " : ""}°C`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
-              fontSize={isDesktop ? "11px" : "10px"}
+              fontSize={isDesktop ? "14px" : "11px"}
             >{`${mintemp_c.toFixed(0)}${isDesktop ? " " : ""}°C`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
-              fontSize={isDesktop ? "11px" : "10px"}
+              fontSize={isDesktop ? "14px" : "11px"}
             >{`${avghumidity}%`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
-              fontSize={isDesktop ? "11px" : "10px"}
+              fontSize={isDesktop ? "14px" : "11px"}
             >{`${daily_chance_of_rain}%`}</Typography>
           </TableCell>
           <TableCell align="center">
             <Typography
               variant={isDesktop ? "subtitle1" : "caption"}
               textAlign="center"
-              fontSize={isDesktop ? "11px" : "10px"}
+              fontSize={isDesktop ? "14px" : "11px"}
             >{`${daily_chance_of_snow}%`}</Typography>
           </TableCell>
         </TableRow>
@@ -122,11 +127,19 @@ function NextDays({ data = { forecastday: [] } }: Props) {
         padding: 0,
         justifyContent: "space-between",
         borderRadius: "16px",
+        maxWidth: "1536px",
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginTop: { xs: "0", sm: "24px", md: "32px" },
+        scrollbarWidth: "100px",
       }}
+      component={Paper}
     >
-      <Table size="small">
+      <Table size="small" sx={{ "& table": { border: 0 } }}>
         <TableHead>
-          <TableRow sx={{ height: { xs: "32px", md: "50px" } }}>
+          <TableRow
+            sx={{ height: { xs: "32px", md: "50px" }, "& td": { border: 0 } }}
+          >
             <TableCell
               align="center"
               sx={{
