@@ -1,5 +1,5 @@
 import { SyntheticEvent, useEffect, useState } from "react";
-import { Container, Divider, Grid2, Tab, Tabs } from "@mui/material";
+import { Container, Grid2, Tab, Tabs } from "@mui/material";
 import Today from "../components/Today";
 import Details from "../components/Details";
 import useIsMobileDevice from "../hooks/useIsMobileDevice";
